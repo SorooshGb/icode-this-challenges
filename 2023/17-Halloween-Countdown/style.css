@@ -1,0 +1,92 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-clr1: rgb(13, 16, 36);
+  --text-clr1: #fff;
+  --text-clr2: #6C6C6E;
+  --text-shadow: 0 0 10px rgb(248, 184, 47);
+}
+
+body {
+  font-family: Arial;
+  color: var(--text-clr1);
+  background-color: var(--bg-clr1);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background-color: rgba(12, 16, 32, .4);
+  background-image: url('./background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: darken;
+  padding: 4rem 1rem;
+  width: min(900px, 90%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  position: relative;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.589);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: -2rem;
+  background-color: rgb(12, 16, 32);
+  z-index: -5;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw + 1rem, 3rem);
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  justify-self: center;
+  scale: 1.2 1;
+  grid-column: 1 / -1;
+  text-shadow: var(--text-shadow);
+}
+
+h1 span {
+  font-size: clamp(.8rem, 2vw + .2rem, 1rem);
+  display: block;
+  text-transform: lowercase;
+  margin-bottom: 1em;
+}
+
+.container > div {
+  font-size: clamp(1.2rem, 5vw + .3rem, 5rem);
+  font-family: system-ui;
+  font-weight: lighter;
+  padding-block: .2em;
+  margin-block: 7rem;
+  background-color: rgb(13 16 36 / .4);
+  text-align: center;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container > div p {
+  text-shadow: var(--text-shadow);
+}
+
+.container > div span {
+  font-size: clamp(.8rem, 3vw + .2rem, 2rem);
+  color: var(--text-clr2);
+  display: block;
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Games List</title>
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul class="tabs">
+                <li>Home</li>
+                <li>Apps</li>
+                <li>Games</li>
+                <li>Music</li>
+                <li>Movies&TV</li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+            <input class="search-input" type="text" placeholder="Search">
+        </div>
+    </header>
+
+    <main>
+        <section class="new-media container">
+            <h2>New Games</h2><p class="load-more">Load more</p>
+            <div class="media-grid js-new-media-grid"></div>
+        </section>
+
+        <section class="recommended container">
+            <h2>Recommended for You</h2><p class="load-more">Load more</p>
+            <div class="media-grid js-recommended-media-grid"></div>
+        </section>
+
+        <section class="trending container">
+            <h2>Trending Now</h2><p class="load-more">Load more</p>
+            <div class="media-grid js-trending-media-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

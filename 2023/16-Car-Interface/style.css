@@ -1,0 +1,413 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --accent: #CC8D02;
+    --txt-clr1: #4d4f51;
+    --main-font: 'Days One', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #020705;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23222222' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    font-family: var(--main-font);
+    color: var(--txt-clr1);
+    text-transform: uppercase;
+    width: min(950px, 95%);
+}
+
+header {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    width: 80%;
+    padding: 0 2rem;
+}
+
+header ul {
+    display: flex;
+    margin: 0 auto;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+header li {
+    transition: color .2s;
+}
+
+header li:hover {
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.caller {
+    text-align: center;
+    min-height: 250px;
+    transition: all 2s;
+}
+
+.call-finished {
+    min-height: 50px;
+}
+
+.telephone-icon {
+    color: rgba(255, 255, 255, .45);
+}
+
+.accepted {
+    color: red;
+    cursor: pointer;
+}
+
+.caller-img-wrapper {
+    display: grid;
+    width: 18%;
+    min-width: 100px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 6px solid rgb(29, 29, 29);
+    margin: 0 auto;
+    animation: calling 3.5s ease-in-out infinite;
+}
+
+.caller-img {
+    grid-column: 1 /-1;
+    grid-row: 1 / span 1;
+    border-radius: 50%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.4);
+}
+
+.caller-overlay {
+    font-size: 2.8rem;
+    grid-column: 1 /-1;
+    grid-row: 1 / span 1;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    transform: rotate(265deg);
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.caller p:first-of-type {
+    margin: .7rem 0;
+}
+
+.call-btns {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.btn-divider {
+    width: 1px;
+    background-color: rgb(46, 46, 46);
+    position: relative;
+    z-index: 1;
+}
+
+.call-btn {
+    font-family: inherit;
+    color: var(--accent);
+    background-color: #0e1011;
+    border: none;
+    padding: .7rem 1.1rem;
+    margin: 0;
+    cursor: pointer;
+    transition: all .18s;
+    box-shadow: 0 0 5px rgb(250 250 250 / .1)
+}
+
+.call-btn:hover {
+    scale: .99;
+    box-shadow: 0 0 2px rgb(250 250 250 / .1)
+}
+
+.call-btn.decline {
+    margin-left: -1px;
+}
+
+.call-btn.decline {
+    margin-right: -1px;
+}
+
+.meters {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.tachometer,
+.speedometer {
+    color: white;
+    width: max(40%, 150px);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    outline-style: dotted;
+    outline-width: 3px;
+    outline-color: rgb(80, 80, 80);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+}
+
+.tachometer .line,
+.speedometer .line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: 165px 0;
+    width: 4%;
+    height: 2px;
+    background-color: var(--txt-clr1);
+}
+
+.tachometer .line:nth-child(4n + 1),
+.speedometer .line:nth-child(4n + 1) {
+    height: 3px;
+    width: 5%;
+    background-color: white;
+}
+
+.inner-circle {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    position: relative;
+}
+
+.number {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: 115px 0;
+}
+
+.number span {
+    display: inline-block;
+    font-size: clamp(.6rem, 1vw + .25rem, 1.1rem);
+}
+
+.random-line {
+    width: 15%;
+    height: 1.5%;
+    background-color: var(--accent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateX(-110%);
+}
+
+.random-line1 {
+    rotate: -25.5deg;
+}
+
+.random-line2 {
+    rotate: 120deg;
+    height: 2%;
+}
+
+.random-line3 {
+    rotate: 170deg;
+    height: 3%;
+}
+
+.needle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    rotate: 130deg;
+    background-color: var(--accent);
+    z-index: 100;
+}
+
+.tachometer .needle {
+    animation: engine 20s forwards;
+}
+
+.speedometer .needle {
+    animation: floor-it 20s forwards;
+}
+
+.needle-head {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.needle-head div {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 10vw;
+    max-height: 75px;
+    background-color: var(--accent);
+    clip-path: polygon(50% 0%, 36% 100%, 66% 100%);
+    transform-origin: top;
+    rotate: -90deg;
+    z-index: 100;
+}
+
+.gauges {
+    width: 80%;
+    margin: 0 auto;
+    font-size: clamp(.7rem, 3vw + .3rem, 1.6rem);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.oil-gauge-wrap,
+.fuel-gauge-wrap {
+    background-color: var(--accent);
+    width: 3em;
+    height: 3em;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.oil-gauge,
+.fuel-gauge {
+    display: grid;
+    place-items: center;
+    background-color: rgb(12, 12, 12);
+    width: 82%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+
+@keyframes calling {
+
+    0%,
+    100% {
+        scale: 1;
+        box-shadow: none;
+    }
+
+    50% {
+        scale: 1.05;
+        box-shadow: 0 0 20px rgb(255 255 255 / .1);
+    }
+}
+
+@keyframes floor-it {
+    0% {
+        rotate: 20deg;
+    }
+
+    25% {
+        rotate: 40deg;
+    }
+
+    35% {
+        rotate: 35deg;
+    }
+
+
+    100% {
+        rotate: 140deg;
+    }
+}
+
+@keyframes engine {
+    0% {
+        rotate: 80deg;
+    }
+
+    10% {
+        rotate: 20deg;
+    }
+
+
+    25% {
+        rotate: 50deg;
+    }
+
+
+    35% {
+        rotate: 35deg;
+    }
+
+
+    60% {
+        rotate: 100deg;
+    }
+
+
+    70% {
+        rotate: 25deg;
+    }
+
+
+    100% {
+        rotate: 130deg
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .caller {
+        margin-bottom: 3rem;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    header { 
+        padding-top: 1rem;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .meters {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .tachometer,
+    .speedometer {
+        outline-width: 2px;
+    }
+}

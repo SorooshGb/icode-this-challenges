@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:ital,wght@0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Task Details</title>
+</head>
+<body>
+    <div class="intro">
+        <h1>Add a new task</h1>
+        <button class="add-task-btn js-add-task-btn">Add</button>
+        <div class="task-list">
+            <p>Task List Empty</p>
+        </div>
+    </div>
+
+    <div class="new-task-window js-new-task-window">
+
+        <div class="title-bar">
+            <h1>Task Name</h1>
+            <i class="fa-solid fa-xmark js-close-btn"></i>
+        </div>
+
+        <form class="form">
+            <fieldset class="task-duration">
+                <div>
+                    <label for="start-date">
+                        <p>Start Date</p> <input id="start-date" type="date">
+                    </label>
+                    <label for="start-time">
+                        <input id="start-time" type="time">
+                    </label>
+                </div>
+                <div>
+                    <label for="start-date">
+                        <p>End Date</p> <input id="end-date" type="date">
+                    </label>
+                    <label for="end-time">
+                        <input id="end-time" type="time">
+                    </label>
+                </div>
+                <div>
+                    <label for="task-type">
+                        <p>Type</p>
+                        <select name="" id="">
+                            <option value="task">Task</option>
+                            <option value="task">Some other</option>
+                        </select>
+                    </label>
+                </div>
+                
+            </fieldset>
+            <fieldset class="form__section-two">
+                <div class="form__section-two__col1">
+                    <label for="task-name">
+                        <p>Task Name</p>
+                        <input id="task-name" type="text" placeholder="Enter task name">
+                    </label>
+                    <label for="task-description">
+                         <p>Task Description</p>
+                         <textarea name="task-description" id="task-description" rows="10" placeholder="Add task description"></textarea>
+                    </label>
+                </div>
+                <div class="form__section-two__col2">
+                    <p>Working on this</p>
+                    <div class="people-on-task">
+                        <img src="https://i.pravatar.cc/150?img=32" loading="lazy">
+                        <img src="https://i.pravatar.cc/150?img=28" loading="lazy">
+                        <button class="add-people-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="attachments">
+                        <p>Attachments</p>
+                        <div class="attachments-grid">
+                            <img src="https://i.pravatar.cc/150?img=16" loading="lazy">
+                            <img src="https://i.pravatar.cc/150?img=17" loading="lazy">
+                            <img src="https://i.pravatar.cc/150?img=18" loading="lazy">
+                            <img src="https://i.pravatar.cc/150?img=19" loading="lazy">
+                            <img src="https://i.pravatar.cc/150?img=20" loading="lazy">
+                            <img src="https://i.pravatar.cc/150?img=21" loading="lazy">
+                            <button class="add-attachment-btn">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="save-btn-row">
+                    <button class="save-btn">Save</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
