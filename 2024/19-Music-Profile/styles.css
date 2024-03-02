@@ -1,0 +1,352 @@
+:root {
+  --clr-primary: hsl(100, 11%, 16%);
+  --clr-secondary: white;
+  --clr-accent: hsl(22, 100%, 10%);
+  --clr-bg: white;
+  --clr-bg-gradient-left: hsl(246, 50%, 70%);
+  --clr-bg-gradient-right: hsl(153, 54%, 68%);
+  --clr-bg-card: hsla(33, 66%, 78%);
+  --clr-bg-album-overlay: hsla(33, 66%, 78%, .7);
+  --clr-bg-stream-button: hsl(31, 47%, 84%);
+  --clr-box-shadow: hsla(29, 53%, 20%, .3);
+  --ff-primary: 'Pixelify Sans', sans-serif;
+  --fs-primary: 1rem;
+  transition: all .250s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+img,
+svg {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  background-color: unset;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vh;
+  background-color: var(--clr-accent);
+  cursor: pointer;
+}
+
+
+.translate-y-100vh {
+  transform: translateY(100vh);
+}
+
+
+.scale-0 {
+  scale: 0;
+}
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  font-family: var(--ff-primary);
+  color: var(--clr-primary);
+  font-size: var(--fs-primary);
+  font-weight: 400;
+  user-select: none;
+  /* transition: all .600s ease-in-out; */
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image: linear-gradient(90deg, var(--clr-bg-gradient-left) 0%, var(--clr-bg-gradient-right) 100%);
+}
+
+h2,
+h3 {
+  font-weight: bold;
+  color: var(--clr-accent);
+}
+
+.card {
+  width: min(24rem, 95%);
+  border-radius: 2rem;
+  background-color: var(--clr-bg-card);
+  overflow: hidden;
+  transition: all .500s ease-in-out;
+}
+
+.card-upper {
+  display: flex;
+}
+
+.profile-image {
+  transform: skewY(-10deg);
+  overflow: hidden;
+  width: 100%;
+  height: 14rem;
+  margin-top: -2rem;
+}
+
+.profile-image img {
+  margin-top: 2rem;
+  transform: skewY(10deg);
+  object-fit: cover;
+  width: 100%;
+  height: 105%;
+}
+
+.card-lower {
+  width: 85%;
+  margin-inline: auto;
+}
+
+.description {
+  margin-top: 4rem;
+
+  & p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
+
+.albums {
+  margin-block: 2rem;
+
+  & h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+}
+
+.album-list {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.album {
+  flex-shrink: 0;
+  display: grid;
+  width: 7rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 0.4rem solid var(--clr-accent);
+  cursor: pointer;
+  grid-template-areas:
+    "a a"
+    "a a";
+  box-shadow: 0px 5px 10px var(--clr-box-shadow);
+}
+
+.album img {
+  transition: scale 550ms;
+  grid-area: a;
+}
+
+.album-overlay {
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-bg-album-overlay);
+  color: var(--clr-accent);
+  grid-area: a;
+  opacity: 0;
+  transition: opacity 350ms;
+
+  & p {
+    padding: .5rem;
+    line-height: 1.3;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+
+  }
+}
+
+.album:hover {
+  & img {
+    scale: 1.1;
+  }
+
+  & .album-overlay {
+    position: relative;
+    opacity: 1;
+    z-index: 4;
+  }
+}
+
+
+.card-upper {
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: 1.5rem;
+  width: 3rem;
+  color: white;
+  cursor: pointer;
+
+  & svg {
+    width: 2.4rem;
+    stroke-width: 1.5;
+  }
+}
+
+.plus-btn {
+  position: absolute;
+  width: 3.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--clr-accent);
+  inset-inline-end: 1rem;
+  bottom: 0.5rem;
+  display: grid;
+  place-content: center;
+  box-shadow: 0 10px 20px var(--clr-box-shadow);
+  transition:
+    scale 350ms ease-in-out,
+    rotate 250ms ease-in-out;
+}
+
+.plus-btn svg {
+  width: 2.2rem;
+  stroke-width: 2;
+  color: var(--clr-secondary);
+  transition:
+    scale 350ms ease-in-out,
+    transform 350ms ease-in-out;
+
+}
+
+.plus-btn:hover {
+  scale: .9;
+
+  & svg {
+    scale: 1.3
+  }
+}
+
+.plus-btn.opened svg {
+  transform: rotate(45deg) scale(1.3);
+}
+
+.btn-list {
+  position: absolute;
+  display: flex;
+  gap: 1.4rem;
+  transform: skewY(-10deg);
+  bottom: -1.3rem;
+  left: 3rem;
+  align-items: center;
+  opacity: 0;
+  transition: all .250s ease-in-out;
+}
+
+.btn-list.active {
+  left: 1.2rem;
+  bottom: -2rem;
+  opacity: 1;
+}
+
+.btn-list button {
+  width: 3.2rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-accent);
+  border: .4rem solid var(--clr-accent);
+  border-radius: 50%;
+  transform: skewY(10deg) scale(.4);
+  transition: all .250s .250s ease-in-out;
+}
+
+.btn-list.active button:nth-child(1) {
+  transition: all .250s .550s ease-in-out;
+}
+
+
+.btn-list.active button:nth-child(2) {
+  transition: all .250s .450s ease-in-out;
+}
+
+.btn-list.active button:nth-child(3) {
+  transition: all .250s .350s ease-in-out;
+}
+
+.btn-list button svg {
+  width: 1.5rem;
+}
+
+.btn-list.active button {
+  background-color: var(--clr-bg-stream-button);
+  transform: skewY(10deg) scale(1);
+  transition: all .250s .250s ease-in-out;
+}

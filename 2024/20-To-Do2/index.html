@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>To Do2</title>
+</head>
+
+<body>
+  <div class="card">
+    <header class="header">
+      <h1>Groceries</h1>
+      <div class="menu">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </header>
+    <p class="shared faded">Shared with <span>1 person</span></p>
+    <div class="todos">
+      <ul>
+        <li>
+          <div class="checkbox-container">
+            <input id="todo1" type="checkbox"></input>
+            <div class="checkmark"></div>
+          </div>
+          <label for="todo1">Eggs</label>
+        </li>
+        <li>
+          <div class="checkbox-container">
+            <input id="todo2" type="checkbox"></input>
+            <div class="checkmark"></div>
+          </div>
+          <label for="todo2">Tomatoes</label>
+        </li>
+        <li>
+          <div class="checkbox-container">
+            <input id="todo3" type="checkbox"></input>
+            <div class="checkmark"></div>
+          </div>
+          <label for="todo3">Avocado</label>
+        </li>
+      </ul>
+    </div>
+    <div class="completed-todos">
+      <h5>Completed (4)</h5>
+      <ul>
+        <li>
+          <div class="checkbox-container">
+            <input type="checkbox" checked disabled></input>
+            <div class="checkmark"></div>
+          </div>
+          <label>Egg noodles</label>
+        </li>
+        <li>
+          <div class="checkbox-container">
+            <input type="checkbox" checked disabled></input>
+            <div class="checkmark"></div>
+          </div>
+          <label>Scampi</label>
+        </li>
+        <li>
+          <div class="checkbox-container">
+            <input type="checkbox" checked disabled></input>
+            <div class="checkmark"></div>
+          </div>
+          <label>Orange juice</label>
+        </li>
+        <li>
+          <div class="checkbox-container">
+            <input type="checkbox" checked disabled></input>
+            <div class="checkmark"></div>
+          </div>
+          <label>Apples</label>
+        </li>
+      </ul>
+    </div>
+    <button class="add-btn">
+      +
+    </button>
+  </div>
+</body>
+
+</html>
