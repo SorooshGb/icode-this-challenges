@@ -1,0 +1,18 @@
+{
+  "name": "i-code-this-challenges",
+  "version": "1.0.0",
+  "description": "This repository contains my personal solutions to daily front-end challenges from [iCodeThis](https://icodethis.com). Each challenge is built using HTML, CSS, and JavaScript, focusing on responsive layouts, modern UI design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@dprint/typescript": "^0.95.3",
+    "dprint": "^0.49.1",
+    "dprint-plugin-malva": "^0.12.1",
+    "dprint-plugin-markup": "^0.20.0"
+  }
+}
