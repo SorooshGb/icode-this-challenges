@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Report</title>
+  </head>
+
+  <body>
+    <div class="wrapper animate slide">
+      <div>
+        <button aria-label="close dialog" class="close-btn">
+          <?xml version="1.0" encoding="utf-8"?>
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="content">
+        <h1>What's happening?</h1>
+        <p>Check all that apply.</p>
+        <form>
+          <div>
+            <input id="video-problem" type="checkbox">
+            <div><label for="video-problem">Video Problem</label></div>
+            <p>Blurry, cuts out, or looks strange in some way.</p>
+          </div>
+          <div>
+            <input id="sound-problem" type="checkbox">
+            <div><label for="sound-problem">Sound Problem</label></div>
+            <p>
+              Hard to hear, not matched with video, or missing in some parts.
+            </p>
+          </div>
+          <div>
+            <input id="caption-problem" type="checkbox">
+            <div>
+              <label for="caption-problem">Subtitles or caption Problem</label>
+            </div>
+            <p>
+              Missing, hard to read, not matched with sound, misspelling, or
+              poor translations.
+            </p>
+          </div>
+          <p>It's something else</p>
+          <textarea
+            maxlength="600"
+            placeholder="Let us know what's going on"
+          ></textarea>
+          <button type="submit">Submit Report</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

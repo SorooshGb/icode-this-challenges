@@ -1,0 +1,214 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+span {
+  font-size: 0.9rem;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+svg {
+  fill: var(--clr-text-primary);
+  width: 32px;
+  aspect-ratio: 1;
+}
+
+:root {
+  --clr-bg: hsl(238, 33%, 16%);
+  --clr-card-bg: hsl(238, 33%, 21%);
+  --clr-link-bg: hsl(238, 30%, 26%);
+  --clr-accent: hsl(338, 80%, 61%);
+  --clr-text-primary: hsl(0, 0%, 100%);
+  --clr-text-secondary: hsl(238, 43%, 64%);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--clr-text-primary);
+  background-color: var(--clr-bg);
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: min(450px, 95%);
+  background-color: var(--clr-card-bg);
+  border-radius: 0.9rem;
+  padding: 2rem;
+}
+
+a {
+  position: relative;
+  display: inline-flex;
+  background-color: var(--clr-link-bg);
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.6rem;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  background-color: var(--clr-accent);
+  inset: 36px;
+  border-radius: inherit;
+  z-index: -1;
+  transition: inset ease 200ms;
+}
+
+a:hover::before {
+  inset: 0;
+}
+
+a + a {
+  margin-left: 10px;
+}
+
+.copy-link-snippet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--clr-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.copy-btn {
+  display: grid;
+  place-items: center;
+  color: var(--clr-text-secondary);
+  min-height: 20px;
+}
+
+.copy-btn:not(.copied) {
+  transition: color 100ms;
+  transition: text-shadow 100ms;
+
+  svg {
+    fill: var(--clr-text-secondary);
+    transition: fill 100ms;
+  }
+}
+
+.copy-btn:not(.copied):hover {
+  color: var(--clr-text-primary);
+  text-shadow: 0 0 5px hsl(0, 0%, 83%);
+  cursor: pointer;
+
+  svg {
+    fill: var(--clr-text-primary);
+  }
+}
+
+.copy-btn span {
+  font-size: 0.8rem;
+}
+
+.copy-btn.copied {
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  animation: pop 0.2s linear 1;
+
+  svg {
+    fill: hsl(120, 50%, 50%);
+  }
+}
+
+.copy-icon, .copied-icon {
+  display: none;
+  width: 20px;
+}
+
+.copy-btn.copied .copy-icon {
+  display: none;
+}
+
+@media (width < 375px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .copy-link-snippet {
+    padding: 1rem;
+  }
+
+  .copy-btn span {
+    display: none;
+  }
+
+  .copy-icon {
+    display: initial;
+  }
+
+  .copy-btn.copied .copied-icon {
+    display: initial;
+  }
+}
+
+.animate {
+  --animation-delay: 0.2s;
+  --animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  animation-delay: var(--animation-delay);
+  animation-timing-function: var(--animation-timing-function);
+}
+
+.animate.slide {
+  animation-name: animate-slide;
+}
+
+.animate.entry {
+  animation-name: animate-entry;
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes animate-slide {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes animate-entry {
+  from {
+    opacity: 0;
+    scale: 0.5;
+    transform: translate(-200px, 200px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translate(0, 0);
+  }
+}
